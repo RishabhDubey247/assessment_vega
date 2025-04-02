@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  .container.mt-5
+    h2.text-center.mb-4 Blog List
+    .mb-3.text-end
+      a.btn.btn-success(href='/blogs/new')
+        i.bi.bi-plus-circle.me-1
+        | Add Blog
+    table.table.table-striped.table-hover
+      thead
+        tr
+          th Title
+          th Image
+          th Description
+          th Actions
+      tbody
+        each blog in blogs
+          tr
+            td= blog.title
+            td
+              img(src=blog.image class='img-thumbnail' width='100')
+            td= blog.description.substring(0, 50) + '...'
+            td.d-flex.gap-2
+              a.btn.btn-info.btn-sm(href='/blogs/' + blog._id)
+                i.bi.bi-eye-fill
+              a.btn.btn-warning.btn-sm(href='/blogs/edit/' + blog._id)
+                i.bi.bi-pencil-fill
+              form(action='/blogs/delete/' + blog._id method='POST' style='display:inline')
+                button.btn.btn-danger.btn-sm(type='submit')
+                  i.bi.bi-trash-fill

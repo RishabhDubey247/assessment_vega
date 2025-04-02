@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  h2 Sign Up
+  form(action='/signup' method='POST' enctype='multipart/form-data')
+    input(type='email' name='email' placeholder='Email' required)
+    input(type='password' name='password' placeholder='Password' required)
+    input(type='file' name='profileImage')
+    button(type='submit') Sign Upextends layout
+
+block content
+  h2.text-center.mt-4 Sign Up
+  .container.mt-5
+    .row.justify-content-center
+      .col-md-6
+        form(action='/signup' method='POST' enctype='multipart/form-data')
+          .mb-3
+            label.form-label(for='email') Email address
+            input#email.form-control(type='email' name='email' placeholder='Enter email' required)
+          .mb-3
+            label.form-label(for='password') Password
+            input#password.form-control(type='password' name='password' placeholder='Password' required)
+          .mb-3
+            label.form-label(for='profileImage') Profile Image
+            input#profileImage.form-control(type='file' name='profileImage')
+          button.btn.btn-primary.w-100(type='submit') Sign Up

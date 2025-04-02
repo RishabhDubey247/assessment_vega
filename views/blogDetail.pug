@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  .container.mt-5
+    .card.shadow
+      .card-body
+        h2.card-title.text-center.mb-4= blog.title
+        .text-center.mb-3
+          img(src=blog.image class='img-fluid rounded' style='max-width: 400px;')
+        p.card-text= blog.description
+        a.btn.btn-secondary.mt-3(href='/blogs') Back to Blogs

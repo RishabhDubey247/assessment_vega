@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  .container.mt-5
+    h2.text-center.mb-4 Welcome to Dashboard
+    if user
+      .card.shadow.p-4.mb-4
+        .d-flex.align-items-center
+          img(src=user.profileImage class='rounded-circle me-3' width='100' height='100')
+          .ms-3
+            h5.mb-1= user.email
+            a.btn.btn-primary.mt-2(href='/blogs')
+              i.bi.bi-journal-text.me-1
+              | View Blogs

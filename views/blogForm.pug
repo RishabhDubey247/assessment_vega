@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  .container.mt-5
+    h2.text-center.mb-4= blog ? 'Edit Blog' : 'Add Blog'
+    .row.justify-content-center
+      .col-md-8
+        form(action=blog ? '/blogs/edit/' + blog._id : '/blogs/new' method='POST' enctype='multipart/form-data')
+          .mb-3
+            label.form-label(for='title') Title
+            input#title.form-control(type='text' name='title' placeholder='Enter blog title' required value=blog ? blog.title : '')
+          .mb-3
+            label.form-label(for='description') Description
+            textarea#description.form-control(name='description' rows='5' placeholder='Enter blog description')=blog ? blog.description : ""
+          .mb-3
+            label.form-label(for='image') Blog Image
+            input#image.form-control(type='file' name='image')
+          button.btn.btn-primary.w-100(type='submit') Submit
